@@ -1,9 +1,11 @@
+import os
 import re
 import json
 from collections import Counter
 
 import sqlite3
 import requests
+import nltk
 from bs4 import BeautifulSoup
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -20,26 +22,23 @@ from database import (
     update_request_result
 )
 
-import nltk
 from nltk.corpus import stopwords
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 # ----------------------------
-# NLTK SETUP (FIXED FOR VERCEL)
+# NLTK SETUP (VERCEL COMPATIBLE)
 # ----------------------------
-# 1. Point NLTK to your local project folder
-path = os.path.join(os.getcwd(), 'nltk_data')
-nltk.data.path.append(path)
+# Point to local folder for read-only environments
+nltk_path = os.path.join(os.getcwd(), 'nltk_data')
+nltk.data.path.append(nltk_path)
 
-# 2. Load resources (assuming they are already in ./nltk_data)
 try:
     STOP_WORDS = set(stopwords.words("english"))
     sid = SentimentIntensityAnalyzer()
 except LookupError:
-    # If not found, try to download to the current path (local dev only)
-    # Note: This will still fail on Vercel if nltk_data is missing!
-    nltk.download("stopwords", download_dir=path, quiet=True)
-    nltk.download("vader_lexicon", download_dir=path, quiet=True)
+    # This block triggers if the files aren't in nltk_data yet
+    nltk.download("stopwords", download_dir=nltk_path, quiet=True)
+    nltk.download("vader_lexicon", download_dir=nltk_path, quiet=True)
     STOP_WORDS = set(stopwords.words("english"))
     sid = SentimentIntensityAnalyzer()
 
