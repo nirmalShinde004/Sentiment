@@ -12,7 +12,7 @@ export function UserRequest() {
       return;
     }
 
-    await fetch("http://localhost:5000/api/request-analysis", {
+    await fetch("https://sentiment-fawn.vercel.app/api/request-analysis", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

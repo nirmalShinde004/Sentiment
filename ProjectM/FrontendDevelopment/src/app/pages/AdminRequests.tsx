@@ -17,7 +17,7 @@ export default function AdminRequests() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/admin/requests")
+    fetch("https://sentiment-fawn.vercel.app/api/admin/requests")
       .then(res => res.json())
       .then(data => {
         setRequests(data);
@@ -32,7 +32,7 @@ export default function AdminRequests() {
   const handleAnalyze = async (id: number) => {
     try {
 
-      const res = await fetch(`http://localhost:5000/api/admin/analyze/${id}`, {
+      const res = await fetch(`https://sentiment-fawn.vercel.app/api/admin/analyze/${id}`, {
         method: "POST"
       });
 
@@ -42,7 +42,7 @@ export default function AdminRequests() {
 
       // Refresh list
       // 🔥 REFRESH FULL DATA FROM BACKEND
-const updated = await fetch("http://localhost:5000/api/admin/requests");
+const updated = await fetch("https://sentiment-fawn.vercel.app/api/admin/requests");
 const newData = await updated.json();
 setRequests(newData);
 

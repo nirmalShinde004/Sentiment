@@ -21,7 +21,7 @@ export function AnalyzeProduct() {
   const submitRequest = async () => {
     if (!productName) return alert("Enter product name");
 
-    const res = await fetch("http://localhost:5000/api/request-analysis", {
+    const res = await fetch("https://sentiment-fawn.vercel.app/api/request-analysis", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export function AnalyzeProduct() {
 
   const fetchUserResults = async () => {
     const res = await fetch(
-      `http://localhost:5000/api/user/results/${user.email}`
+      `https://sentiment-fawn.vercel.app/api/user/results/${user.email}`
     );
 
     const data = await res.json();

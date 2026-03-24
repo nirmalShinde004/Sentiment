@@ -33,7 +33,7 @@ export function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/history")
+    fetch("https://sentiment-fawn.vercel.app/api/history")
       .then((res) => res.json())
       .then((data) => {
         setAnalyses(data);

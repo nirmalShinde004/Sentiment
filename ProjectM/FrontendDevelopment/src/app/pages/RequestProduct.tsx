@@ -28,7 +28,7 @@ export default function RequestProduct() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/request-analysis", {
+      const res = await fetch("https://sentiment-fawn.vercel.app/api/request-analysis", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

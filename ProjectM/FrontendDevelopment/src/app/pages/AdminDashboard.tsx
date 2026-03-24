@@ -15,7 +15,7 @@ export function AdminDashboard() {
   }
 
   const fetchRequests = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/requests");
+    const res = await fetch("https://sentiment-fawn.vercel.app/api/admin/requests");
     const data = await res.json();
     setRequests(data);
   };
@@ -24,7 +24,7 @@ export function AdminDashboard() {
   const analyzeRequest = async (id: number) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/admin/analyze/${id}`,
+        `https://sentiment-fawn.vercel.app/api/admin/analyze/${id}`,
         { method: "POST" }
       );
 
@@ -43,7 +43,7 @@ export function AdminDashboard() {
   };
 
   const fetchUsers = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/users");
+    const res = await fetch("https://sentiment-fawn.vercel.app/api/admin/users");
     const data = await res.json();
     setUsers(data);
   };
@@ -51,7 +51,7 @@ export function AdminDashboard() {
   const deleteUser = async (id: number) => {
     if (!confirm("Delete user?")) return;
 
-    await fetch(`http://localhost:5000/api/admin/users/${id}`, {
+    await fetch(`https://sentiment-fawn.vercel.app/api/admin/users/${id}`, {
       method: "DELETE",
     });
 

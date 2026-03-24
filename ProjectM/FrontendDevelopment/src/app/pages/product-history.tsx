@@ -33,7 +33,7 @@ export function ProductHistory() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/history")
+    fetch("https://sentiment-fawn.vercel.app/api/history")
       .then((res) => res.json())
       .then((data: ProductAnalysis[]) => {
         console.log("HISTORY DATA:", data); // debug
