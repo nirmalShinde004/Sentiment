@@ -1,0 +1,32 @@
+# --- Frontend (React / Vite) ---
+node_modules/
+dist/
+dist-ssr/
+*.local
+.eslintcache
+
+# --- Backend (Python / Flask) ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+.env
+
+# --- Database & Local Storage ---
+*.db
+*.sqlite3
+instance/
+
+# --- NLTK Data ---
+# Note: UNCOMMENT the line below ONLY if you are NOT 
+# bundling NLTK data for Vercel. 
+# Since we are bundling it, leave it as is so Git tracks it.
+# nltk_data/
+
+# --- IDE & OS Files ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
