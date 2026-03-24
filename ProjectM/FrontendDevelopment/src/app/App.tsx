@@ -1,0 +1,10 @@
+import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
+
+export default function App() {
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
+
+  return <Outlet />;
+}

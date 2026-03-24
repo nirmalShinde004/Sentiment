@@ -1,0 +1,18 @@
+Folder PATH listing for volume OS
+Volume serial number is 4628-E470
+C:.
+¦   analysis.db
+¦   app.py
+¦   check_db.py
+¦   clear_history.py
+¦   database.db
+¦   database.py
+¦   projectm.db
+¦   requirements.txt
+¦   setup_nltk.py
+¦   structureBE.txt
+¦   
++---__pycache__
+        app.cpython-312.pyc
+        database.cpython-312.pyc
+        
