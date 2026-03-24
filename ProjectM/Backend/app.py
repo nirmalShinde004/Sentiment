@@ -24,6 +24,25 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
+# ----------------------------
+# NLTK SETUP (FIXED FOR VERCEL)
+# ----------------------------
+# 1. Point NLTK to your local project folder
+path = os.path.join(os.getcwd(), 'nltk_data')
+nltk.data.path.append(path)
+
+# 2. Load resources (assuming they are already in ./nltk_data)
+try:
+    STOP_WORDS = set(stopwords.words("english"))
+    sid = SentimentIntensityAnalyzer()
+except LookupError:
+    # If not found, try to download to the current path (local dev only)
+    # Note: This will still fail on Vercel if nltk_data is missing!
+    nltk.download("stopwords", download_dir=path, quiet=True)
+    nltk.download("vader_lexicon", download_dir=path, quiet=True)
+    STOP_WORDS = set(stopwords.words("english"))
+    sid = SentimentIntensityAnalyzer()
+
 app = Flask(__name__)
 CORS(app)
 
